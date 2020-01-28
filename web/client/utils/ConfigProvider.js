@@ -173,13 +173,20 @@ const CONFIGPROVIDER = {
         }
     },
     MapBox: {
-        url: '//api.tiles.mapbox.com/v4/{source}/{z}/{x}/{y}.png?access_token={accessToken}',
+        url: 'https://api.mapbox.com/styles/v1/{variant}/tiles/{z}/{x}/{y}?access_token={accessToken}',
         options: {
             maxNativeZoom: 18,
             attribution:
-                    'Imagery from <a href="http://mapbox.com/about/maps/">MapBox</a> &mdash; ' +
-                    'Map data {attribution.OpenStreetMap}',
+                'Imagery from <a href="http://mapbox.com/about/maps/">MapBox</a> &mdash; ' +
+                'Map data {attribution.OpenStreetMap}',
             subdomains: ['a', 'b', 'c', 'd']
+        },
+        variants: {
+            Streets: 'mapbox/streets-v9',
+            Outdoors: 'mapbox/outdoors-v9',
+            Satellite: 'mapbox/satellite-v9',
+            Light: 'mapbox/light-v9',
+            Dark: 'mapbox/dark-v9'
         }
     },
     MapBoxStyle: {

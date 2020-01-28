@@ -1,68 +1,122 @@
 {
   "version": 2,
-	"map": {
-    "projection": "EPSG:900913",
-		"units": "m",
-		"center": {"x": 1250000.000000, "y": 5370000.000000, "crs": "EPSG:900913"},
-    "zoom":5,
-		"maxExtent": [
-			-20037508.34, -20037508.34,
-			20037508.34, 20037508.34
-		],
-		"layers": [
-			{
-				"type": "osm",
-				"title": "Open Street Map",
-				"name": "mapnik",
-        "source": "osm",
-				"group": "background",
-        "visibility": true
-			},
-      {
-        "type": "tileprovider",
-        "title": "NASAGIBS Night 2012",
-        "provider": "NASAGIBS.ViirsEarthAtNight2012",
-        "name": "Night2012",
-        "source": "nasagibs",
-        "group": "background",
-        "visibility": false
+  "map": {
+      "projection": "EPSG:900913",
+      "units": "m",
+      "center": {
+          "x": 1250000.000000,
+          "y": 5370000.000000,
+          "crs": "EPSG:900913"
       },
-      {
-        "type": "tileprovider",
-        "title": "OpenTopoMap",
-        "provider": "OpenTopoMap",
-        "name": "OpenTopoMap",
-        "source": "OpenTopoMap",
-        "group": "background",
-        "visibility": false
-      },
-      {
-        "format": "image/jpeg",
-        "group": "background",
-        "name": "s2cloudless:s2cloudless",
-        "opacity": 1,
-        "title": "Sentinel 2 Cloudless",
-        "type": "wms",
-        "url": [
-          "https://1maps.geo-solutions.it/geoserver/wms", "https://2maps.geo-solutions.it/geoserver/wms", "https://3maps.geo-solutions.it/geoserver/wms", "https://4maps.geo-solutions.it/geoserver/wms", "https://5maps.geo-solutions.it/geoserver/wms", "https://6maps.geo-solutions.it/geoserver/wms"
-        ],
-        "source": "s2cloudless",
-        "visibility": false,
-        "singleTile": false
-      },
-      {
-        "source": "ol",
-        "group": "background",
-        "title": "Empty Background",
-        "fixed": true,
-        "type": "empty",
-        "visibility": false,
-        "args": [
-          "Empty Background", {
-            "visibility": false
+      "zoom": 5,
+      "maxExtent": [
+          -20037508.34, -20037508.34,
+          20037508.34, 20037508.34
+      ],
+      "layers": [
+          {
+              "type": "osm",
+              "title": "Open Street Map",
+              "name": "mapnik",
+              "source": "osm",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "tileprovider",
+              "title": "MapBox Streets",
+              "accessToken": "pk.eyJ1Ijoibm9yZGFpIiwiYSI6ImNrMWFyMG1hNDI5ZWozb3FqbDRuOGNweTkifQ.uiw5cwXwP4MIySTR7ILKIQ",
+              "provider": "MapBox.Streets",
+              "name": "Streets",
+              "source": "MapBox",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "tileprovider",
+              "title": "MapBox Outdoors",
+              "accessToken": "pk.eyJ1Ijoibm9yZGFpIiwiYSI6ImNrMWFyMG1hNDI5ZWozb3FqbDRuOGNweTkifQ.uiw5cwXwP4MIySTR7ILKIQ",
+              "provider": "MapBox.Outdoors",
+              "name": "Outdoors",
+              "source": "MapBox",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "tileprovider",
+              "title": "MapBox Satellite",
+              "accessToken": "pk.eyJ1Ijoibm9yZGFpIiwiYSI6ImNrMWFyMG1hNDI5ZWozb3FqbDRuOGNweTkifQ.uiw5cwXwP4MIySTR7ILKIQ",
+              "provider": "MapBox.Satellite",
+              "name": "Satellite",
+              "source": "MapBox",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "tileprovider",
+              "title": "MapBox Light",
+              "accessToken": "pk.eyJ1Ijoibm9yZGFpIiwiYSI6ImNrMWFyMG1hNDI5ZWozb3FqbDRuOGNweTkifQ.uiw5cwXwP4MIySTR7ILKIQ",
+              "provider": "MapBox.Light",
+              "name": "Light",
+              "source": "MapBox",
+              "group": "background",
+              "visibility": true
+          },
+          {
+              "type": "tileprovider",
+              "title": "MapBox Dark",
+              "accessToken": "pk.eyJ1Ijoibm9yZGFpIiwiYSI6ImNrMWFyMG1hNDI5ZWozb3FqbDRuOGNweTkifQ.uiw5cwXwP4MIySTR7ILKIQ",
+              "provider": "MapBox.Dark",
+              "name": "Dark",
+              "source": "MapBox",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "google",
+              "title": "Google SATELLITE",
+              "name": "SATELLITE",
+              "source": "google",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "google",
+              "title": "Google ROADMAP",
+              "name": "ROADMAP",
+              "source": "google",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "google",
+              "title": "Google TERRAIN",
+              "name": "TERRAIN",
+              "source": "google",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "type": "google",
+              "title": "Google HYBRID",
+              "name": "HYBRID",
+              "source": "google",
+              "group": "background",
+              "visibility": false
+          },
+          {
+              "source": "ol",
+              "group": "background",
+              "title": "Empty Background",
+              "fixed": true,
+              "type": "empty",
+              "visibility": false,
+              "args": [
+                  "Empty Background", {
+                      "visibility": false
+                  }
+              ]
           }
-        ]
-      }
-		]
-	}
+      ]
+  }
 }

@@ -182,31 +182,31 @@ module.exports = (bundles, themeEntries, paths, extractThemesPlugin, prod, publi
     devServer: {
         proxy: proxy || {
             '/rest/geostore': {
-                target: "https://qa.mapstore.geo-solutions.it/mapstore",
+                target: "https://app.geonue.com/mapstore",
                 secure: false,
                 headers: {
-                    host: "qa.mapstore.geo-solutions.it"
+                    host: "app.geonue.com"
                 }
             },
             '/pdf': {
-                target: "https://qa.mapstore.geo-solutions.it/mapstore",
+                target: "https://app.geonue.com/mapstore",
                 secure: false,
                 headers: {
-                    host: "qa.mapstore.geo-solutions.it"
+                    host: "app.geonue.com"
                 }
             },
             '/mapstore/pdf': {
-                target: "https://qa.mapstore.geo-solutions.it",
+                target: "https://app.geonue.com",
                 secure: false,
                 headers: {
-                    host: "qa.mapstore.geo-solutions.it"
+                    host: "app.geonue.com"
                 }
             },
             '/proxy': {
-                target: "https://qa.mapstore.geo-solutions.it/mapstore",
+                target: "https://app.geonue.com/mapstore",
                 secure: false,
                 headers: {
-                    host: "qa.mapstore.geo-solutions.it"
+                    host: "app.geonue.com"
                 }
             },
             '/docs': {

@@ -1,10 +1,18 @@
 {
     "proxyUrl": {
         "url": "proxy/?url=",
-        "useCORS": ["http://app.geonue.com/geoserver", "https://app.geonue.com/geoserver", "https://app.geonue.com/geoserver", "https://nominatim.openstreetmap.org"]
+        "useCORS": [
+          "http://demo.geo-solutions.it/geoserver",
+          "https://demo.geo-solutions.it:443/geoserver",
+          "https://demo.geo-solutions.it/geoserver",
+          "https://nominatim.openstreetmap.org",
+          "http://cloudsdi.geo-solutions.it",
+          "https://gs-stable.geo-solutions.it/geoserver",
+          "https://gs-stable.geo-solutions.it:443/geoserver"
+        ]
     },
     "geoStoreUrl": "rest/geostore/",
-    "printUrl": "https://app.geonue.com/geoserver/pdf/info.json",
+    "printUrl": "pdf/info.json",
     "bingApiKey": "AhuXBu7ipR1gNbBfXhtUAyCZ6rkC5PkWpxs2MnMRZ1ZupxQfivjLCch22ozKSCAn",
     "mapquestApiKey": "__API_KEY_MAPQUEST__",
     "initialMapFilter": "",
@@ -24,7 +32,7 @@
         "urlPattern": ".*geostore.*",
         "method": "bearer"
       }, {
-        "urlPattern": "http(s)?\\:\\/\\/app\\.geonue\\.com\\/geoserver/.*",
+        "urlPattern": "http(s)?\\:\\/\\/gs-stable\\.geo-solutions\\.it\\/geoserver/.*",
         "authkeyParamName": "authkey-qa",
         "method": "authkey"
     }],
@@ -32,12 +40,7 @@
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
       {"name": "featuregridmode", "path": "featuregrid.mode"}],
-    "projectionDefs": [{
-            "code": "EPSG:3003",
-            "def": "+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=1500000 +y_0=0 +ellps=intl+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68 +units=m +no_defs",
-            "extent": [1241482.0019, 973563.1609, 1830078.9331, 5215189.0853],
-            "worldExtent": [6.6500, 8.8000, 12.0000, 47.0500]
-        }],
+    "projectionDefs": [],
     "initialState": {
       "defaultState": {
         "annotations": {
@@ -63,21 +66,21 @@
             "selectedService": "gs_stable_csw",
             "services": {
               "gs_stable_csw": {
-                "url": "https://app.geonue.com/geoserver/csw",
+                "url": "https://gs-stable.geo-solutions.it/geoserver/csw",
                 "type": "csw",
-                "title": "GeoNue GeoServer CSW",
+                "title": "GeoSolutions GeoServer CSW",
                 "autoload": true
               },
               "gs_stable_wms": {
-                "url": "https://app.geonue.com/geoserver/wms",
+                "url": "https://gs-stable.geo-solutions.it/geoserver/wms",
                 "type": "wms",
-                "title": "GeoNue GeoServer WMS",
+                "title": "GeoSolutions GeoServer WMS",
                 "autoload": false
               },
               "gs_stable_wmts": {
-                "url": "https://app.geonue.com/geoserver/gwc/service/wmts",
+                "url": "https://gs-stable.geo-solutions.it/geoserver/gwc/service/wmts",
                 "type": "wmts",
-                "title": "GeoNue GeoServer WMTS",
+                "title": "GeoSolutions GeoServer WMTS",
                 "autoload": false
               }
             },
@@ -287,7 +290,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "HelpLink", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
                 "name": "Identify",
                 "cfg": {
@@ -371,17 +374,13 @@
                 "showLabels": true,
                 "showToggle": true,
                 "filterAllowedCRS": ["EPSG:4326", "EPSG:3857"],
-                "additionalCRS": {
-                        "EPSG:3003": {
-                            "label": "EPSG:3003"
-                        }
-                    }
+                "additionalCRS": {}
               }
             }, {
               "name": "CRSSelector",
               "cfg": {
                 "additionalCRS": {
-                    "EPSG:3003": { "label": "EPSG:3003" }
+
                 },
                 "filterAllowedCRS": [
                   "EPSG:4326",
@@ -449,13 +448,11 @@
                 "name": "Map",
                 "cfg": {
                     "tools": ["locate"],
-                    "mapType": "openlayers",
                     "mapOptions": {
                     "openlayers": {
                       "interactions": {
                         "pinchRotate": false,
-                        "altShiftDragRotate": false,
-                        "mouseWheelZoom": false
+                        "altShiftDragRotate": false
                       },
                       "attribution": {
                         "container": "#mapstore-map-footer-container"
@@ -464,8 +461,7 @@
                     "leaflet": {
                       "attribution": {
                         "container": "#mapstore-map-footer-container"
-                      },
-                      "scrollWheelZoom": false
+                      }
                     }
                   },
                   "toolsOptions": {
@@ -516,25 +512,10 @@
                     }
                 }
             }, {
-                "name": "ZoomIn",
-                "override": {
-                    "Toolbar": {
-                        "alwaysVisible": true
-                    }
-                }
-            }, {
-                "name": "ZoomOut",
-                "override": {
-                    "Toolbar": {
-                        "alwaysVisible": true
-                    }
-                }
-            }, "WFSDownload", "TOCItemsSettings", {
                 "name": "TOC",
                 "cfg": {
-                    "activateMapTitle": true,
-                    "activateSettingsTool": true,
-                    "activateDownloadTool": true,
+                    "activateMapTitle": false,
+                    "activateSettingsTool": false,
                     "activateMetedataTool": false,
                     "activateRemoveLayer": false
                 }
@@ -566,18 +547,12 @@
             }, "Cookie",
             "OmniBar", {
                 "name": "GoFull",
-                "cfg": {
-                    "urlReplaceString": "$1#/viewer/openlayers/$2"
-                },
                 "override": {
                     "Toolbar": {
                         "alwaysVisible": true
                     }
                 }
             },
-            "FloatingLegend", "WidgetsBuilder", "Widgets", "BurgerMenu",
-            "Timeline",
-            "Playback",
             "FeedbackMask"
         ],
         "common": [{
@@ -588,28 +563,16 @@
         }, {
             "name": "ManagerMenu",
             "cfg": {
-                "enableContextManager": true
+                "enableContextManager": false
             }
-        } , "Login", "Language", "NavMenu",
-        {
-            "name": "Attribution",
-            "cfg": {
-                "label": "GeoNue",
-                "href": "http://www.geonue.com",
-                "src": "product/assets/img/geonuemaps_v.svg"
-            }
-        }, "ScrollTop", "Notifications"],
-        "maps": [{
-            "name": "HomeDescription",
-            "cfg": {
-                "name": "GeoNue MapStore"
-            }
-          }, "MapSearch", {
+        }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
+        "maps": ["HomeDescription", "Fork", "MapSearch", {
           "name": "CreateNewMap",
           "cfg": {
-            "showNewGeostory": true
+            "showNewGeostory": false
           }
         }, "FeaturedMaps", "ContentTabs",
+
           {
             "name": "Maps",
             "cfg": {
@@ -630,16 +593,6 @@
             }
           },
           {
-            "name": "GeoStories",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
-            }
-          },
-          {
             "name": "Contexts",
             "cfg": {
               "mapsOptions": {
@@ -648,12 +601,8 @@
               },
               "fluid": true
             }
-          },  {
-            "name": "Footer",
-            "cfg": {
-              "logo" : null
-            }
-          }, {
+          }
+          , "MailingLists", "Footer", {
           "name": "Cookie",
           "cfg": {
             "externalCookieUrl" : "",
@@ -666,20 +615,13 @@
                 "containerPosition": "header",
                 "className": "navbar shadow navbar-home"
             }
-        }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", {
-            "name": "Attribution",
-            "cfg": {
-                "label": "GeoNue",
-                "href": "http://www.geonue.com",
-                "src": "product/assets/img/geonuemaps_v.svg"
-            }
-        }, "Home", {
+        }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", "Attribution", "Home", {
           "name": "DashboardEditor",
           "cfg": {
              "catalog": {
-              "url": "https://app.geonue.com/geoserver/csw",
+              "url": "https://gs-stable.geo-solutions.it/geoserver/csw",
               "type": "csw",
-              "title": "GeoNue CSW Service",
+              "title": "GeoSolutions GeoServer CSW",
               "autoload": true
             },
             "containerPosition": "columns"
@@ -719,14 +661,7 @@
           "BurgerMenu",
           "Language",
           "NavMenu",
-          {
-            "name": "Attribution",
-            "cfg": {
-                "label": "GeoNue",
-                "href": "http://www.geonue.com",
-                "src": "product/assets/img/geonuemaps_v.svg"
-            }
-        },
+          "Attribution",
           "Home",
           "GeoStory",
           "GeoStorySave",
