@@ -37,7 +37,7 @@ module.exports = {
                     menu: "1"
                 }
             },
-            mapInfo: {enabled: true, infoFormat: 'text/html' }
+            mapInfo: {enabled: true, infoFormat: 'text/plain' }
         },
         mobile: {
         }
